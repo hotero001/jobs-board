@@ -1,0 +1,17 @@
+<h2>Jobs</h2>
+
+<%@jobs.each do |job|%>
+  <div>
+  <%=job.title%><br/>
+  <%=job.company%><br/>
+  <%=job.pay%><br/>
+  <%=job.description%><br/>
+  <%=link_to 'Show', job%>
+  <%=link_to 'Edit', edit_job_path(job)%>
+  <%=link_to 'Destroy', job, method: :delete, data: {confirm: 'Are you sure you want to delete this job listing?'}%>
+  <div><br/><br/>
+<%end%>
+
+<br/><br/>
+
+<%=link_to "Create a New Job Listing", new_job_path%>

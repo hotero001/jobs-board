@@ -1,0 +1,23 @@
+<h2>New Jobs</h2>
+
+<%=form_for(@job) do |f|%>
+  <div class="field">
+    <%=f.label :title%>
+    <%=f.text_field :title%>
+  </div>
+  <div class="field">
+    <%=f.label :company%>
+    <%=f.text_field :company%>
+  </div>
+  <div class="field">
+    <%=f.label :pay%>
+    <%=f.text_field :pay%>
+  </div>
+  <div class="field">
+    <%=f.label :description%>
+    <%=f.text_field :description%>
+  </div>
+  <div class="actions">
+    <%=f.submit%>
+  </div>
+<%end%>

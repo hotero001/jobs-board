@@ -1,0 +1,6 @@
+<h3>Users</h3>
+
+<%@users.each do |user|%>
+  <p><%=user.name%></p>
+  <%link_to 'Destroy', user, method: :delete%>
+<%end%>
