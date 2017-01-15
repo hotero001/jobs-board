@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <%=link_to 'Home', '/'%>
-<%=link_to 'New User', new_user_path%>
-<%=link_to 'Log In', '/'%>
+<%if logged_in?%>
+  <%=link_to 'Log Out', logout_path%><br/>
+<%else%>
+  <%=link_to 'New User', new_user_path%>
+  <%=link_to 'Log In', login_path%>
+<%end%>
 <body>
 
 <%= yield %>

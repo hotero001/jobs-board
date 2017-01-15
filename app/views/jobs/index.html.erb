@@ -2,16 +2,20 @@
 
 <%@jobs.each do |job|%>
   <div>
-  <%=job.title%><br/>
+  <%=link_to job.title, job%><br/>
   <%=job.company%><br/>
   <%=job.pay%><br/>
   <%=job.description%><br/>
   <%=link_to 'Show', job%>
-  <%=link_to 'Edit', edit_job_path(job)%>
-  <%=link_to 'Destroy', job, method: :delete, data: {confirm: 'Are you sure you want to delete this job listing?'}%>
+  <%if logged_in? and current_user.admin?%>
+    <%=link_to 'Edit', edit_job_path(job)%>
+    <%=link_to 'Destroy', job, method: :delete, data: {confirm: 'Are you sure you want to delete this job listing?'}%>
+  <%end%>
   <div><br/><br/>
 <%end%>
 
 <br/><br/>
 
-<%=link_to "Create a New Job Listing", new_job_path%>
+<%if logged_in?%>
+  <%=link_to "Create a New Job Listing", new_job_path%>
+<%end%>

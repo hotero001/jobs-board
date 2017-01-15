@@ -6,7 +6,7 @@ describe Job do
     assert true == true
   end
 
-  it 'saves itself' do
+  it 'saves the job' do
     job = Job.new(title: 'one', company: 'iml', pay: '20000', description: 'job description')
     job.save
     expect(Job.count).to eq(1)

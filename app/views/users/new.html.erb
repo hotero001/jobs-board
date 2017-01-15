@@ -9,6 +9,11 @@
     <%=user.label :email%>
     <%=user.text_field :email%>
   </div>
+  <div class="field">
+    <%=user.label :password_digest%>
+    <%=user.password_field :password_digest%>
+  </div>
+
   <div class="actions">
     <%=user.submit%>
   </div>
