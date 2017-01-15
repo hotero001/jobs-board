@@ -1,4 +1,4 @@
-<h2>Jobs</h2>
+<h2>Jobs In Nuevo Leon</h2>
 
 <%@jobs.each do |job|%>
   <div>
@@ -6,7 +6,6 @@
   <%=job.company%><br/>
   <%=job.pay%><br/>
   <%=job.description%><br/>
-  <%=link_to 'Show', job%>
   <%if logged_in? and current_user.admin?%>
     <%=link_to 'Edit', edit_job_path(job)%>
     <%=link_to 'Destroy', job, method: :delete, data: {confirm: 'Are you sure you want to delete this job listing?'}%>
@@ -16,6 +15,6 @@
 
 <br/><br/>
 
-<%if logged_in?%>
+<%if logged_in? and current_user.admin?%>
   <%=link_to "Create a New Job Listing", new_job_path%>
 <%end%>

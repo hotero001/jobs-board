@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  before_action :require_admin, only: [:new, :create, :destroy]
   def index
   	@jobs = Job.all
   end
