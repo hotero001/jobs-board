@@ -13,7 +13,10 @@
     <%=user.label :password%>
     <%=user.password_field :password_digest%>
   </div>
-
+  <b>Upload Resume Below</b>
+  <div class="field">
+    <%=user.file_field :file%>
+  </div>
   <div class="actions">
     <%=user.submit%>
   </div>
