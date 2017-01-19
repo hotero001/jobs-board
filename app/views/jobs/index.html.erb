@@ -17,4 +17,9 @@
 
 <%if logged_in? and current_user.admin?%>
   <%=link_to "Create a New Job Listing", new_job_path%>
+<%end%><br/><br/>
+
+<%@parser.each do |wyo|%>
+  <p><%=wyo%></p><br/><br/>
 <%end%>
+<!--<p><%=@parser_count%></p>-->
