@@ -19,6 +19,8 @@
   <%=link_to "Create a New Job Listing", new_job_path%>
 <%end%><br/><br/>
 
+<b>There are <%=@parser_count%> jobs currently waiting to be filled</b>
+
 <%@parser.each do |wyo|%>
   <p><%=wyo%></p><br/><br/>
 <%end%>
