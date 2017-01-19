@@ -17,7 +17,7 @@ gem 'nokogiri'
 gem 'httparty'
 #gem 'JSON'
 #gem 'Pry'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
