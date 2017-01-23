@@ -1,3 +1,4 @@
+
 <h2>Jobs In Nuevo Leon</h2>
 
 <%@jobs.each do |job|%>
@@ -17,11 +18,29 @@
 
 <%if logged_in? and current_user.admin?%>
   <%=link_to "Create a New Job Listing", new_job_path%>
-<%end%><br/><br/>
+<%end%><br/>
 
-<b>There are <%=@parser_count%> jobs currently waiting to be filled</b>
+<b>There are <%=@parser_count%> jobs currently waiting to be filled</b><br/><br/>
 
 <%@parser.each do |wyo|%>
-  <p><%=wyo%></p><br/><br/>
-<%end%>
-<!--<p><%=@parser_count%></p>-->
+<div class="container">
+  <div style="border: 1px solid black;">
+  <b>Title:  </b><%=wyo.to_s[wyo.to_s.index("title=").to_i+7..wyo.to_s.index("aviso_content").to_i-22]%><br/><br/>
+  <b>Dia de Publicacion:  </b><%=wyo.to_s[wyo.to_s.index("Hace").to_i..wyo.to_s.index("Hace").to_i+15]%><br/><br/>
+  <!--<b>Link:  </b><%=wyo.to_s[wyo.to_s.index("a href").to_i..wyo.to_s.index("class").to_i-2]%><br/><br/>-->
+  <%stringed = wyo.to_s[wyo.to_s.index("a href").to_i+8..wyo.to_s.index("class").to_i-3]%>
+  <%stringed2="http://www.bumeran.com.mx"+stringed%>
+  <%pages1=HTTParty.get(stringed2)%>
+  <%linker= Nokogiri::HTML(pages1)%>
+  <%j = linker.at_css("div#contenido_aviso")%>
+  <!--this below is working. but what we need to do instead is just eliminate all the html and div markings from each job post-->
+
+  <%=j.to_s[j.to_s.index('Actividades').to_i..j.to_s.index('</div>')]%>
+
+  <%=link_to 'Apply to this Job Instantly', controller: "jobs", action: "driver_method"%>
+  </div>
+</div>
+  <br/><br/>
+<%end%><br/>
+
+<p><%=@parsed_links%></p>
