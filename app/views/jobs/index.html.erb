@@ -33,9 +33,9 @@
   <%pages1=HTTParty.get(stringed2)%>
   <%linker= Nokogiri::HTML(pages1)%>
   <%j = linker.at_css("div#contenido_aviso")%>
-  <!--this below is working. but what we need to do instead is just eliminate all the html and div markings from each job post-->
-
-  <%=j.to_s[j.to_s.index('Actividades').to_i..j.to_s.index('</div>')]%>
+  <%dave = j.xpath("//text()").to_s%>
+  <%=dave.to_s[dave.to_s.index("Postularme").to_i+190..dave.to_s.index("Me tengo").to_i-130]%>
+  <br/><br/>
 
   <%=link_to 'Apply to this Job Instantly', controller: "jobs", action: "driver_method"%>
   </div>
