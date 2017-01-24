@@ -1,1 +1,23 @@
 <b><h2>Education Jobs</h2></b><br/><br/>
+
+
+<%@parser.each do |wyo|%>
+<div class="container">
+  <div style="border: 1px solid black;">
+  <b>Title:  </b><%=wyo.to_s[wyo.to_s.index("title=").to_i+7..wyo.to_s.index("aviso_content").to_i-22]%><br/><br/>
+  <b>Dia de Publicacion:  </b><%=wyo.to_s[wyo.to_s.index("Hace").to_i..wyo.to_s.index("Hace").to_i+15]%><br/><br/>
+  <!--<b>Link:  </b><%=wyo.to_s[wyo.to_s.index("a href").to_i..wyo.to_s.index("class").to_i-2]%><br/><br/>-->
+  <%stringed = wyo.to_s[wyo.to_s.index("a href").to_i+8..wyo.to_s.index("class").to_i-3]%>
+  <%stringed2="http://www.bumeran.com.mx"+stringed%>
+  <%pages1=HTTParty.get(stringed2)%>
+  <%linker= Nokogiri::HTML(pages1)%>
+  <%j = linker.at_css("div#contenido_aviso")%>
+  <%dave = j.xpath("//text()").to_s%>
+  <%=dave.to_s[dave.to_s.index("Postularme").to_i+190..dave.to_s.index("Me tengo").to_i-130]%>
+  <br/><br/>
+
+  <%=link_to 'Apply to this Job Instantly', controller: "jobs", action: "driver_method"%>
+  </div>
+</div>
+  <br/><br/>
+<%end%><br/>
