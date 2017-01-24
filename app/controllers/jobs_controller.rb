@@ -9,8 +9,6 @@ class JobsController < ApplicationController
     parsed_page = Nokogiri::HTML(page)
     @parser = parsed_page.css('.aviso_box')
     @parsed = parsed_page.css('.aviso_cuando')
-    @parsed_count = parsed_page.css('.aviso_cuando').count
-    @parser_count = parsed_page.css('.aviso_box').count
   	@jobs = Job.all  
   end
 
@@ -20,6 +18,30 @@ class JobsController < ApplicationController
     page = HTTParty.get(bumeran)
     parsed_page = Nokogiri::HTML(page)
     #add some variables here that can access the data from bumeran
+  end
+
+  def engineering_jobs
+    url = "http://bumeran.com.mx/nuevo-leon/empleos-categoria-ingenieria.html"
+    page = HTTParty.get(url)
+    parsed_page = Nokogiri::HTML(page)
+    @parser = parsed_page.css('.aviso_box')
+    @parsed = parsed_page.css('.aviso_cuando')
+  end
+
+  def call_center_jobs
+    url = "http://bumeran.com.mx/nuevo-leon/empleos-categoria-call-center.html"
+    page = HTTParty.get(url)
+    parsed_page = Nokogiri::HTML(page)
+    @parser = parsed_page.css('.aviso_box')
+    @parsed = parsed_page.css('.aviso_cuando')
+  end
+
+  def education_jobs
+    url = "http://bumeran.com.mx/nuevo-leon/empleos-categoria-educacion.html"
+    page = HTTParty.get(url)
+    parsed_page = Nokogiri::HTML(page)
+    @parser = parsed_page.css('.aviso_box')
+    @parsed = parsed_page.css('.aviso_cuando')
   end
 
   def create

@@ -1,33 +1,4 @@
-<h1>Jobs In Nuevo Leon</h1>
-
-<div class="type">
-  <h3><b>Areas De Empleo</b></h3><br/>
-  <%=link_to 'Call Center', '/callcenter'%>
-  <%=link_to 'Engineering', '/engineering'%>
-  <%=link_to 'Education', '/education'%>
-</div>
-
-<%@jobs.each do |job|%>
-  <div>
-  <%=link_to job.title, job%><br/>
-  <%=job.company%><br/>
-  <%=job.pay%><br/>
-  <%=job.description%><br/>
-  <%if logged_in? and current_user.admin?%>
-    <%=link_to 'Edit', edit_job_path(job)%>
-    <%=link_to 'Destroy', job, method: :delete, data: {confirm: 'Are you sure you want to delete this job listing?'}%>
-  <%end%>
-  <div><br/><br/>
-<%end%>
-
-<br/>
-
-<%if logged_in? and current_user.admin?%>
-  <%=link_to "Create a New Job Listing", new_job_path%>
-<%end%><br/>
-
-
-<b>Featured Jobs</b><br/><br/>
+<b><h2>Call Center Jobs</h2></b><br/><br/>
 
 <%@parser.each do |wyo|%>
 <div class="container">
@@ -49,5 +20,3 @@
 </div>
   <br/><br/>
 <%end%><br/>
-
-<p><%=@parsed_links%></p>
