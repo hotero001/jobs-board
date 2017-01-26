@@ -9,7 +9,8 @@ class JobsController < ApplicationController
     parsed_page = Nokogiri::HTML(page)
     @parser = parsed_page.css('.aviso_box')
     @parsed = parsed_page.css('.aviso_cuando')
-  	@jobs = Job.all  
+  	@jobs = Job.all
+    @specialty_hash = {"Call Center"=>'/callcenter', "Engineering"=>'/engineering', "Education"=>'/education'}
   end
 
   #might not need this method after all
