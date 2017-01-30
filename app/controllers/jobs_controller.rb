@@ -118,6 +118,7 @@ class JobsController < ApplicationController
 
   #might not need this method after all
   def driver_method
+    flash[:alert] = "Your resume has been sent to the company. You will be contacted if you are a good fit for this job."
     bumeran = "http://bumeran.com.mx/"
     page = HTTParty.get(bumeran)
     parsed_page = Nokogiri::HTML(page)

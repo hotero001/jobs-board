@@ -1,4 +1,8 @@
-<h1>Jobs In Nuevo Leon</h1>
+<h1>Trabajos En Nuevo Leon</h1>
+
+<div class="test">
+  <b>How are you?</b>
+</div>
 
 <div class="type">
   <h3><b>Areas De Empleos</b></h3><br/>
@@ -44,7 +48,7 @@
   <%=dave.to_s[dave.to_s.index("Postularme").to_i+190..dave.to_s.index("Me tengo").to_i-130]%>
   <br/><br/>
 
-  <%=link_to 'Apply to this Job Instantly', controller: "jobs", action: "driver_method"%>
+  <%=link_to 'Apply to this Job Instantly', controller: "jobs", action: "driver_method", :data => {:confirm => "Are You Sure?"}%>
   </div>
 </div>
   <br/><br/>
