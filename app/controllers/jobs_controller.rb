@@ -3,6 +3,16 @@ require 'capybara'
 class JobsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :destroy]
 
+  def initialize
+    #this specialty hash below should have the 22 areas of employment displayed
+    @specialty_hash = {"Call Center"=>'/callcenter', "Engineering"=>'/engineering', "Education"=>'/education', "Abastecimiento y Logistica"=>'/abastecimiento', 
+      "Administracion, Contibilidad, Y Finanzas"=> '/administracion', "Aduana y Comercio Exterior"=>'/aduana', "Comercial, Ventas, y Negocio"=>'comercial', 
+      "Comunicacion, Relaciones Institucionales, Y Publica"=>'/comunicacion', "Diseno"=> '/diseno', "Gastronomia y Turismo"=> '/gastronomia', "Gerencia y Direccion General"=> '/gerencia',
+      "Legales"=> '/legales', "Marketing y Publicidad"=> '/marketing', "Mineria, Petroleo, y Gas"=> '/mineria', "Oficios y Otros"=> '/oficios',
+      "Produccion y Manufactura"=> '/produccion', "Recursos Humanos y Capacitacion"=> '/rh', "Salud, Medicina, y Farmacia"=> '/salud', "Secretarias y Recepcion"=> '/secretarias',
+      "Seguros"=> '/seguros', "Tecnologia, Sistemas, y Telecomunicaciones"=> '/tech'}
+  end
+
   def set_url(url)
     page = HTTParty.get(url)
     parsed_page = Nokogiri::HTML(page)
@@ -17,13 +27,6 @@ class JobsController < ApplicationController
     @parser = parsed_page.css('.aviso_box')
     @parsed = parsed_page.css('.aviso_cuando')
   	@jobs = Job.all
-    #this specialty hash below should have the 22 areas of employment displayed
-    @specialty_hash = {"Call Center"=>'/callcenter', "Engineering"=>'/engineering', "Education"=>'/education', "Abastecimiento y Logistica"=>'/abastecimiento', 
-      "Administracion, Contibilidad, Y Finanzas"=> '/administracion', "Aduana y Comercio Exterior"=>'/aduana', "Comercial, Ventas, y Negocio"=>'comercial', 
-      "Comunicacion, Relaciones Institucionales, Y Publica"=>'/comunicacion', "Diseno"=> '/diseno', "Gastronomia y Turismo"=> '/gastronomia', "Gerencia y Direccion General"=> '/gerencia',
-      "Legales"=> '/legales', "Marketing y Publicidad"=> '/marketing', "Mineria, Petroleo, y Gas"=> '/mineria', "Oficios y Otros"=> '/oficios',
-      "Produccion y Manufactura"=> '/produccion', "Recursos Humanos y Capacitacion"=> '/rh', "Salud, Medicina, y Farmacia"=> '/salud', "Secretarias y Recepcion"=> '/secretarias',
-      "Seguros"=> '/seguros', "Tecnologia, Sistemas, y Telecomunicaciones"=> '/tech'}
   end
 
   def abastecimiento
