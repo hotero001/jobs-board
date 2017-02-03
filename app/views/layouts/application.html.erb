@@ -1,3 +1,9 @@
+<style>
+  .linkered {
+  	padding-left: 25px;
+  }
+</style>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +13,7 @@
   <%= csrf_meta_tags %>
 </head>
 
+<div class="linkered">
 <%=link_to 'Home', '/'%>
 <%if logged_in?%>
   <%=link_to 'Log Out', logout_path%>
@@ -15,6 +22,7 @@
   <%=link_to 'New User', new_user_path%>
   <%=link_to 'Log In', login_path%><br/>
 <%end%>
+</div>
 <body>
 
 <%= yield %>

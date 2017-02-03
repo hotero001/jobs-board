@@ -1,3 +1,34 @@
+<style>
+  .button {
+    appearance: button;
+    -moz-appearance: button;
+    -webkit-appearance: button;
+    text-decoration: none;
+    font: menu;
+    color: ButtonText;
+    display: inline-block;
+    padding: 2px 8px;
+  }
+
+  h1 {
+    padding-left: 25px;
+  }
+  
+  .type {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  h4 {
+    padding-left: 25px;
+  }
+
+  .container {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+</style>
+
 <%= render :template => "layouts/application" %>
 
 <h1>Trabajos En Nuevo Leon</h1>
@@ -5,7 +36,9 @@
 <div class="type">
   <h3><b>Areas De Empleos</b></h3><br/>
   <%@specialty_hash.each do |area, link_it|%>
-    <%=button_to area, link_it, :method => :get%><br/>
+    <!--The method for button display below was initially used but i think it is frowned upon in the rails community-->
+    <!--<%=button_to area, link_it, :method => :get%>-->
+    <%=link_to area, link_it, :class=>"button"%>
   <%end%>
 </div>
 
@@ -29,7 +62,7 @@
 <%end%><br/>
 
 
-<b>Featured Jobs</b><br/><br/>
+<h4>Featured Jobs</h4><br/>
 
 <%@parser.each do |wyo|%>
 <div class="container">
