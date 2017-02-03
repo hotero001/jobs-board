@@ -30,6 +30,7 @@ class JobsController < ApplicationController
   end
 
   def abastecimiento
+    #render 'layouts/application'
     url = "http://www.bumeran.com.mx/nuevo-leon/empleos-area-abastecimiento-y-logistica.html"
     set_url(url)
   end

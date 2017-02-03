@@ -1,4 +1,15 @@
+<%= render :template => "layouts/application" %>
+
 <b><h2>Call Center Jobs</h2></b><br/><br/>
+
+<div class="type">
+  <h3><b>Areas De Empleos</b></h3><br/>
+  <%@specialty_hash.each do |area, link_it|%>
+    <%=button_to area, link_it, :method => :get%><br/>
+  <%end%>
+</div>
+
+<h3>Empleos De Call Center</h3>
 
 <%@parser.each do |wyo|%>
 <div class="container">
