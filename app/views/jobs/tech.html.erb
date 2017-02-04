@@ -1,13 +1,44 @@
+<style>
+  .button {
+    appearance: button;
+    -moz-appearance: button;
+    -webkit-appearance: button;
+    text-decoration: none;
+    font: menu;
+    color: ButtonText;
+    display: inline-block;
+    padding: 2px 8px;
+  }
+
+  h1 {
+    padding-left: 25px;
+  }
+  
+  .type {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  h4 {
+    padding-left: 25px;
+  }
+
+  .container {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+</style>
+
 <%= render :template => "layouts/application" %>
 
 <div class="type">
   <h3><b>Areas De Empleos</b></h3><br/>
   <%@specialty_hash.each do |area, link_it|%>
-    <%=button_to area, link_it, :method => :get%><br/>
+    <%=link_to area, link_it, :class => "button"%>
   <%end%>
 </div>
 
-<h3>Empleos De Tecnologia</h3>
+<h4>Empleos De Tecnologia</h4>
 
 <br/><%@parser.each do |wyo|%>
 <div class="container">
