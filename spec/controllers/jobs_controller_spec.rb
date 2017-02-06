@@ -29,4 +29,17 @@ describe JobsController do
       expect(response).to render_template("education_jobs")
     end
   end
+
+  describe "GET index" do
+    it "creates a job" do
+      job = Job.create(title: "job1", description: "the first job")
+      get :index
+      assigns(:jobs).should eq([job])
+    end
+
+    it "does not contain jobs" do
+      get :index
+      expect(@jobs).to eq(nil)
+    end
+  end
 end
