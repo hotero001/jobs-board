@@ -78,8 +78,11 @@
   <%=dave.to_s[dave.to_s.index("Postularme").to_i+190..dave.to_s.index("Me tengo").to_i-130]%>
   <br/><br/>
 
-  <%=link_to 'Click Here to Submit Your Resume Immediately', '/', data: {confirm: 'Your resume is being submitted to the company. Click OK to complete the submission.'} %>
-
+  <%if logged_in?%>
+    <%=link_to 'Click Here to Submit Your Resume Immediately', '/', data: {confirm: 'Your resume is being submitted to the company. Click OK to complete the submission.'} %>
+  <%else%>
+    <%=link_to 'Log In and Upload a Resume to Apply to This Job', '/login'%>
+  <%end%>
   </div>
 </div>
   <br/><br/>
