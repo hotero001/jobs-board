@@ -78,7 +78,8 @@
   <%=dave.to_s[dave.to_s.index("Postularme").to_i+190..dave.to_s.index("Me tengo").to_i-130]%>
   <br/><br/>
 
-  <%=link_to 'Apply to this Job Instantly', controller: "jobs", action: "driver_method", :data => {:confirm => "Are You Sure?"}%>
+  <%=link_to 'Click Here to Submit Your Resume Immediately', '/', data: {confirm: 'Your resume is being submitted to the company. Click OK to complete the submission.'} %>
+
   </div>
 </div>
   <br/><br/>
