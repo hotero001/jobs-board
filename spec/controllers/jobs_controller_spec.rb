@@ -42,4 +42,13 @@ describe JobsController do
       expect(@jobs).to eq(nil)
     end
   end
+
+  describe 'DELETE destroy' do
+    it "deletes the contact" do
+      expect(Job.count).to eq(0)
+      @job = Job.create(title: "engineer", description: "entry level chemE", id: 1)
+      delete :destroy, id: @job
+      response.should redirect_to '/'
+    end
+  end
 end
