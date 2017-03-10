@@ -1,3 +1,35 @@
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Trabajos en Nuevo Leon</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="../../dist/css/normalize.css">
+  <link rel="stylesheet" href="../../dist/css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="../../dist/images/favicon.png">
+
+</head>
 <style>
   .button {
     appearance: button;
@@ -15,6 +47,7 @@
   }
   
   .type {
+    font-family: courier;
     padding-left: 25px;
     padding-right: 25px;
   }
@@ -24,11 +57,16 @@
   }
 
   .container {
+    font-family: courier;
     padding-left: 25px;
-    padding-right: 175px;
+    padding-right: 25px;
+  }
+
+  li.active {
+    background: red;
+    color:white;
   }
 </style>
-
 
 <!--snippet below is the google analytics code for tracking users and page visits, etc... -->
 <script>
@@ -40,22 +78,24 @@
   ga('create', 'UA-93162239-1', 'auto');
   ga('send', 'pageview');
 
+  $("r").hover(function()){
+    $(this).toggleClass("active")
+  });
+
 </script>
 
-<div style="width:1600;height:100;background:#dedede;">
 <br/>
 <%= render :template => "layouts/application" %>
-</div>
 
 <br/><br/>
 
-<h1>Trabajos En Nuevo Leon</h1>
+<center><h1>Trabajos En Nuevo Leon</h1></center><br/>
+
+<center><h4>Somos un sitio dedicado a promover puestos de trabajos 100% verdaderos. No somos como otros sitios de trabajo que inluyen puestos de trabajos falsos para incrementar sus numeros de usuarios. Ten confiaza cuando aplicas a estos trabajos.</h4></center><br/>
 
 <div class="type">
-  <h3><b>Areas De Empleos</b></h3><br/>
+  <h3>Areas De Empleos</h3><br/>
   <%@specialty_hash.each do |area, link_it|%>
-    <!--The method for button display below was initially used but i think it is frowned upon in the rails community-->
-    <!--<%=button_to area, link_it, :method => :get%>-->
     <%=link_to area, link_it, :class=>"button"%>
   <%end%>
 </div>
@@ -79,12 +119,12 @@
   <%=link_to "Create a New Job Listing", new_job_path%>
 <%end%><br/>
 
-<h4>Featured Jobs</h4><br/>
+<h4>Ultimas Publicaciones</h4><br/>
 
 <%@parser.each do |wyo|%>
 <div class="container">
   <div style="border: 1px solid black;">
-  <b>Title:  </b><%=wyo.to_s[wyo.to_s.index("title=").to_i+7..wyo.to_s.index("aviso_content").to_i-22]%><br/><br/>
+  <b>Titulo:  </b><%=wyo.to_s[wyo.to_s.index("title=").to_i+7..wyo.to_s.index("aviso_content").to_i-22]%><br/><br/>
   <b>Dia de Publicacion:  </b><%=wyo.to_s[wyo.to_s.index("Hace").to_i..wyo.to_s.index("Hace").to_i+15]%><br/><br/>
   <!--<b>Link:  </b><%=wyo.to_s[wyo.to_s.index("a href").to_i..wyo.to_s.index("class").to_i-2]%><br/><br/>-->
   <%stringed = wyo.to_s[wyo.to_s.index("a href").to_i+8..wyo.to_s.index("class").to_i-3]%>
