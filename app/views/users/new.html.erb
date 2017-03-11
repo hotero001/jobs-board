@@ -4,20 +4,20 @@
   <div class="field">
     <%=user.label :name%>
     <%=user.text_field :name%>
-  </div>
+  </div><br/>
   <div class="field">
     <%=user.label :email%>
     <%=user.text_field :email%>
-  </div>
+  </div><br/>
   <div class="field">
     <%=user.label :password%>
     <%=user.password_field :password_digest%>
-  </div>
-  <b>Upload Resume Below</b>
+  </div><br/>
+  <b>Upload Resume Below</b><br/><br/>
   <div class="field">
     <%=user.file_field :file%>
-  </div>
+  </div><br/>
   <div class="actions">
     <%=user.submit%>
-  </div>
+  </div><br/>
 <%end%>

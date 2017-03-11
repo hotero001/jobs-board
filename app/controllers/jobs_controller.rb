@@ -5,7 +5,7 @@ class JobsController < ApplicationController
 
   def initialize
     #this specialty hash below should have the 22 areas of employment displayed
-    @specialty_hash = {"Call Center"=>'/callcenter', "Engineering"=>'/engineering', "Education"=>'/education', "Abastecimiento y Logistica"=>'/abastecimiento', 
+    @specialty_hash = {"Call Center"=>'/callcenter', "Ingenieria"=>'/engineering', "Educacion"=>'/education', "Abastecimiento y Logistica"=>'/abastecimiento', 
       "Administracion, Contibilidad, Y Finanzas"=> '/administracion', "Aduana y Comercio Exterior"=>'/aduana', "Comercial, Ventas, y Negocio"=>'comercial', 
       "Comunicacion, Relaciones Institucionales, Y Publica"=>'/comunicacion', "Diseno"=> '/diseno', "Gastronomia y Turismo"=> '/gastronomia', "Gerencia y Direccion General"=> '/gerencia',
       "Legales"=> '/legales', "Marketing y Publicidad"=> '/marketing', "Mineria, Petroleo, y Gas"=> '/mineria', "Oficios y Otros"=> '/oficios',
