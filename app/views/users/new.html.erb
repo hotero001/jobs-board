@@ -1,8 +1,8 @@
-<h2>New User</h2>
+<h2>Nuevo Usuario</h2>
 
 <%=form_for(@user) do |user|%>
   <div class="field">
-    <%=user.label :name%>
+    <%=user.label :nombre%>
     <%=user.text_field :name%>
   </div><br/>
   <div class="field">
@@ -10,10 +10,10 @@
     <%=user.text_field :email%>
   </div><br/>
   <div class="field">
-    <%=user.label :password%>
+    <%=user.label :contrasena%>
     <%=user.password_field :password_digest%>
   </div><br/>
-  <b>Upload Resume Below</b><br/><br/>
+  <b>Sube tu Curiculo Abajo</b><br/><br/>
   <div class="field">
     <%=user.file_field :file%>
   </div><br/>
