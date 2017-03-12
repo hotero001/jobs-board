@@ -66,6 +66,12 @@
     background: red;
     color:white;
   }
+
+  .border {
+    background-color: skyblue;
+    border-radius: 50px;
+    padding: 25px;
+  }
 </style>
 
 <!--snippet below is the google analytics code for tracking users and page visits, etc... -->
@@ -95,9 +101,11 @@
 
 <div class="type">
   <h3>Areas De Empleos</h3><br/>
-  <%@specialty_hash.each do |area, link_it|%>
-    <%=link_to area, link_it, :class=>"button"%>
-  <%end%>
+  <div class="border">
+    <%@specialty_hash.each do |area, link_it|%>
+      <%=link_to area, link_it, :class=>"button"%>
+    <%end%>
+  </div>
 </div>
 
 <%@jobs.each do |job|%>

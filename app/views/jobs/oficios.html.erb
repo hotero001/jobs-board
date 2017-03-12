@@ -27,15 +27,25 @@
     padding-left: 25px;
     padding-right: 25px;
   }
+
+  .border {
+    background-color: skyblue;
+    border-radius: 50px;
+    padding: 25px;
+  }
 </style>
 
 <%= render :template => "layouts/application" %>
 
+<center><b><h1>Empleos de Oficios y Otros</h1></b><br/><br/></center>
+
 <div class="type">
   <h3><b>Areas De Empleos</b></h3><br/>
+  <div class="border">
   <%@specialty_hash.each do |area, link_it|%>
     <%=link_to area, link_it, :class =>"button"%>
   <%end%>
+  </div>
 </div>
 
 <h4>Empleos De Oficios</h4>
@@ -58,7 +68,7 @@
   <%if logged_in?%>
     <%=link_to 'Click Here to Submit Your Resume Immediately', '/', data: {confirm: 'Your resume is being submitted to the company. Click OK to complete the submission.'} %>
   <%else%>
-    <%=link_to 'Log In and Upload a Resume to Apply to This Job', '/login'%>
+    <%=link_to 'Inicia sesion y carga un curiculo para aplicar a este trabajo con un solo clic', '/login'%>
   <%end%>
   </div>
 </div>

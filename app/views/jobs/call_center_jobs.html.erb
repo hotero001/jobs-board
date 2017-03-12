@@ -27,17 +27,25 @@
     padding-left: 25px;
     padding-right: 25px;
   }
+
+  .border {
+    background-color: skyblue;
+    border-radius: 50px;
+    padding: 25px;
+  }
 </style>
 
 <%= render :template => "layouts/application" %>
 
-<b><h1>Call Center Jobs</h1></b><br/><br/>
+<center><b><h1>Empleos de Call Center</h1></b><br/><br/></center>
 
 <div class="type">
   <h3><b>Areas De Empleos</b></h3><br/>
-  <%@specialty_hash.each do |area, link_it|%>
-    <%=link_to area, link_it, :class =>"button"%>
-  <%end%>
+  <div class="border">
+    <%@specialty_hash.each do |area, link_it|%>
+      <%=link_to area, link_it, :class =>"button"%>
+    <%end%>
+  </div>
 </div>
 
 <h4>Empleos De Call Center</h4>
@@ -45,7 +53,7 @@
 <%@parser.each do |wyo|%>
 <div class="container">
   <div style="border: 1px solid black;">
-  <b>Title:  </b><%=wyo.to_s[wyo.to_s.index("title=").to_i+7..wyo.to_s.index("aviso_content").to_i-22]%><br/><br/>
+  <b>Titulo:  </b><%=wyo.to_s[wyo.to_s.index("title=").to_i+7..wyo.to_s.index("aviso_content").to_i-22]%><br/><br/>
   <b>Dia de Publicacion:  </b><%=wyo.to_s[wyo.to_s.index("Hace").to_i..wyo.to_s.index("Hace").to_i+15]%><br/><br/>
   <!--<b>Link:  </b><%=wyo.to_s[wyo.to_s.index("a href").to_i..wyo.to_s.index("class").to_i-2]%><br/><br/>-->
   <%stringed = wyo.to_s[wyo.to_s.index("a href").to_i+8..wyo.to_s.index("class").to_i-3]%>
@@ -60,8 +68,12 @@
   <%if logged_in?%>
     <%=link_to 'Click Here to Submit Your Resume Immediately', '/', data: {confirm: 'Your resume is being submitted to the company. Click OK to complete the submission.'} %>
   <%else%>
-    <%=link_to 'Log In and Upload a Resume to Apply to This Job', '/login'%>
+    <%=link_to 'Inicia sesion y carga un curiculo para aplicar a este trabajo con un solo clic', '/login'%>
   <%end%>
+  <center>
+  <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=hotero001-20&marketplace=amazon&region=US&placement=9810728514&asins=9810728514&linkId=7f5a33e8a495e68ee6f8db268666a5c0&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066C0&bg_color=FFFFFF"></iframe>
+  <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=hotero001-20&marketplace=amazon&region=US&placement=1520457685&asins=1520457685&linkId=78649da5f4fefc01b628220172b4775f&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066c0&bg_color=ffffff">
+    </iframe></center>
   </div>
 </div>
   <br/><br/>
