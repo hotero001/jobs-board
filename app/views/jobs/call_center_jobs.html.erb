@@ -52,7 +52,7 @@
 
 <%@parser.each do |wyo|%>
 <div class="container">
-  <div style="border: 1px solid black;">
+  
   <b>Titulo:  </b><%=wyo.to_s[wyo.to_s.index("title=").to_i+7..wyo.to_s.index("aviso_content").to_i-22]%><br/><br/>
   <b>Dia de Publicacion:  </b><%=wyo.to_s[wyo.to_s.index("Hace").to_i..wyo.to_s.index("Hace").to_i+15]%><br/><br/>
   <!--<b>Link:  </b><%=wyo.to_s[wyo.to_s.index("a href").to_i..wyo.to_s.index("class").to_i-2]%><br/><br/>-->
@@ -74,7 +74,7 @@
   <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=hotero001-20&marketplace=amazon&region=US&placement=9810728514&asins=9810728514&linkId=7f5a33e8a495e68ee6f8db268666a5c0&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066C0&bg_color=FFFFFF"></iframe>
   <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=hotero001-20&marketplace=amazon&region=US&placement=1520457685&asins=1520457685&linkId=78649da5f4fefc01b628220172b4775f&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066c0&bg_color=ffffff">
     </iframe></center>
-  </div>
+  
 </div>
   <br/><br/>
 <%end%><br/>
